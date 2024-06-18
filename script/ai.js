@@ -1,4 +1,5 @@
 const axios = require('axios');
+const moment = require('moment-timezone');
 
 module.exports.config = {
   name: 'ai',
@@ -13,31 +14,27 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event, args }) {
-
+ const timeString = moment.tz('Asia/Manila').format('LLL');
   const input = args.join(' ');
 
 
   
   if (!input) {
-    api.shareContact(`𝑯𝑬𝑳𝑳𝑶 𝑰𝑴 𝑨𝑰 
-
-━━━━━━━━━━━━━━━
-
- 𝑷𝑳𝑬𝑨𝑺𝑬 𝑷𝑹𝑶𝑽𝑰𝑫𝑬 𝑨 𝑸𝑼𝑬𝑺𝑻𝑰𝑶𝑵/𝑸𝑼𝑬𝑹𝒀`,api.getCurrentUserID(), event.threadID, event.messageID);
+    api.shareContact(`Hello im Artifical Intelligence, please provide a question.`,api.getCurrentUserID(), event.threadID, event.messageID);
     return;
   }
   api.setMessageReaction("⏳", event.messageID, (err) => {
   }, true);
 api.sendTypingIndicator(event.threadID, true);
 
-  api.shareContact(`🔍𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙡𝙚𝙖𝙨𝙚 𝙒𝙖𝙞𝙩....
-━━━━━━━━━━━━━━━━━━\n\n "${input}"`,api.getCurrentUserID(),event.threadID, event.messageID);
+  api.sendMessage(`🔍𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙡𝙚𝙖𝙨𝙚 𝙒𝙖𝙞𝙩....
+━━━━━━━━━━━━━━━━━━\n\n "${input}"`,event.threadID, event.messageID);
   
   try {
     const { data } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
     let response = data.response;
-    response += "\n\n";
-    api.shareContact(response,api.getCurrentUserID(), event.threadID, event.messageID);
+    response += `\n\n${timeString}`;
+    api.sendMessage(response, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
   }
