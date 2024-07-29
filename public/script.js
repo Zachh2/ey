@@ -1,17 +1,3 @@
-// Function to show the welcome SweetAlert2 modal
-function showWelcomeAlert() {
-    Swal.fire({
-        title: "hello👋, Welcome to Zach's profile!",
-        text: "Explore the awesome features.",
-        imageUrl: "https://i.imgur.com/CVuhEbc.jpeg",
-        imageWidth: 200,
-        imageHeight: 200,
-        imageAlt: "Custom image"
-    });
-}
-
-// Ensure the alert shows after the page loads
-window.addEventListener('load', showWelcomeAlert);
 
 document.getElementById('agreeCheckbox').addEventListener('change', function() {
     document.getElementById('submitButton').disabled = !this.checked;
