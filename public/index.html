@@ -117,6 +117,10 @@
         // Function to enable the submit button when the checkbox is checked
         document.getElementById('agreeCheckbox').addEventListener('change', function() {
             document.getElementById('submitButton').disabled = !this.checked;
+        });
+
+        // Function to show SweetAlert2 confirmation when the checkbox is checked
+        document.getElementById('agreeCheckbox').addEventListener('change', function() {
             if (this.checked) {
                 Swal.fire({
                     title: "Are you sure?",
