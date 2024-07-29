@@ -10,22 +10,6 @@
     <link rel="stylesheet" href="styles.css">
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script>
-        // Function to show the welcome SweetAlert2 modal
-        function showWelcomeAlert() {
-            Swal.fire({
-                title: "hello there 👋",
-                text: "Welcome to AutoBot (messenger)",
-                imageUrl: "https://i.imgur.com/dUZxyj3.jpeg",
-                imageWidth: 200,
-                imageHeight: 200,
-                imageAlt: "Custom image"
-            });
-        }
-
-        // Call the function when the page loads
-        window.onload = showWelcomeAlert;
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -92,7 +76,7 @@
         <input type="text" id="inputOfAdmin">
     </div>
     <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
-        <input type="checkbox" id="agreeCheckbox" style="color: #FFF; margin-right: 10px;"> Checking this box certifies that I have read, understood,and agreed to the Terms and Conditions. </label>
+        <input type="checkbox" id="agreeCheckbox" style="color: #FFF; margin-right: 10px;"> Checking this box certifies that I have read, understood, and agreed to the Terms and Conditions. </label>
     <div class="col text-center">
         <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
     </div>
@@ -108,6 +92,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Function to show the welcome SweetAlert2 modal
+        function showWelcomeAlert() {
+            Swal.fire({
+                title: "hello there 👋",
+                text: "Welcome to AutoBot(Messenger) site.",
+                imageUrl: "https://i.imgur.com/CVuhEbc.jpeg",
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+            });
+        }
+
+        // Ensure the alert shows after the page loads
+        window.onload = showWelcomeAlert;
+    </script>
     <div class="container">
         <h1 class="col text-center" style="font-size: 20px; color: #FFFFFF; padding: 10px">Thank you for using my AutoBot, if you have any concern kindly report to the <a href="https://www.facebook.com/zachary.pnaveax" style="text-decoration: none; color: rgb(0, 251, 255);">owner</a></h1>
     </div>
