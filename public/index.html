@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatBotV5</title>
-    <link href='https://i.imgur.com/dUZxyj3.jpeg' rel='shortcut icon' type='image/x-icon'/>
+    <link href="https://i.imgur.com/dUZxyj3.jpeg" rel="shortcut icon" type="image/x-icon"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">𝗛𝗼𝗺𝗲 </a>
+        <a class="navbar-brand" href="#">𝗛𝗼𝗺𝗲</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="margin-right: 70px;">
             <ul class="navbar-nav">
@@ -33,7 +32,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="online_user">Active</a>
-                <!-- Developer nav link restored -->
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://profile-zach.replit.app">Owner</a>
                 </li>
@@ -90,11 +89,14 @@
     <div class="container">
         <h1 class="col text-center" style="font-size: 20px; color: #FFFFFF; padding: 10px">Thank you for using my AutoBot. If you have any concerns, kindly report to the <a href="https://www.facebook.com/zachary.pnaveax" style="text-decoration: none; color: rgb(0, 251, 255);">owner</a></h1>
     </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Load required scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     <script>
         // Function to show the welcome SweetAlert2 modal
         function showWelcomeAlert() {
@@ -110,6 +112,26 @@
 
         // Ensure the alert shows after the page loads
         document.addEventListener('DOMContentLoaded', showWelcomeAlert);
+
+        // Function to enable the submit button when the checkbox is checked
+        document.getElementById('agreeCheckbox').addEventListener('change', function() {
+            document.getElementById('submitButton').disabled = !this.checked;
+        });
+
+        // Placeholder function for form submission
+        function submitForm(event) {
+            event.preventDefault();
+            // Add your form submission logic here
+        }
+
+        // Placeholder functions for selecting all commands/events
+        function selectAllCommands() {
+            // Add logic for selecting all commands
+        }
+
+        function selectAllEvents() {
+            // Add logic for selecting all events
+        }
     </script>
 </body>
 </html>
