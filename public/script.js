@@ -1,5 +1,25 @@
-
 document.getElementById('agreeCheckbox').addEventListener('change', function() {
+    if (this.checked) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Your Facebook acc will be bot as soon as possible",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, I want to continue"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "No, I don't want",
+                    text: "Okay, click submit now!",
+                    icon: "success"
+                });
+            } else {
+                this.checked = false; // Uncheck the checkbox if cancelled
+            }
+        });
+    }
     document.getElementById('submitButton').disabled = !this.checked;
 });
 
@@ -207,36 +227,36 @@ function selectAllCommands() {
 }
 
 function selectAllEvents() {
-    const box = [{
-        input: '.form-check-input.handleEvent',
-        array: Commands[1].handleEvent
-    }];
-    box.forEach(({
-        input,
-        array
-    }) => {
-        const checkboxes = document.querySelectorAll(input);
-        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-        checkboxes.forEach((checkbox) => {
-            if (allChecked) {
-                checkbox.checked = false;
-                const labelText = checkbox.nextElementSibling;
-                labelText.classList.remove('disable');
-                const event = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
-                const removeEvent = array.indexOf(event);
-                if (removeEvent !== -1) {
-                    array.splice(removeEvent, 1);
-                }
-            } else {
-                checkbox.checked = true;
-                const labelText = checkbox.nextElementSibling;
-                labelText.classList.add('disable');
-                const event = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
-                if (!array.includes(event)) {
-                    array.push(event);
-                }
-            }
-        });
-    });
-}
-commandList();
+       const box = [{
+           input: '.form-check-input.handleEvent',
+           array: Commands[1].handleEvent
+       }];
+       box.forEach(({
+           input,
+           array
+       }) => {
+           const checkboxes = document.querySelectorAll(input);
+           const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+           checkboxes.forEach((checkbox) => {
+               if (allChecked) {
+                   checkbox.checked = false;
+                   const labelText = checkbox.nextElementSibling;
+                   labelText.classList.remove('disable');
+                   const event = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                   const removeEvent = array.indexOf(event);
+                   if (removeEvent !== -1) {
+                       array.splice(removeEvent, 1);
+                   }
+               } else {
+                   checkbox.checked = true;
+                   const labelText = checkbox.nextElementSibling;
+                   labelText.classList.add('disable');
+                   const event = labelText.textContent.replace(/^\d+\.\s/, '').split(" ")[0];
+                   if (!array.includes(event)) {
+                       array.push(event);
+                   }
+               }
+           });
+       });
+   }
+   commandList();
